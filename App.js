@@ -5,11 +5,10 @@ import ButtonComponent from './app/components/ButtonComponent';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import Card from './app/components/Card';
+import ListingScreen from './app/screens/ListingScreen';
 
 export default function App() {
   return (
-    
-   
         //<WelcomeScreen/>
 
         //<ViewImageScreen/>
@@ -18,13 +17,23 @@ export default function App() {
         //   <ButtonComponent title="login" onPress={() => console.log("pressedx!")}/>
         // </View>
      
-        <View style={[styles.container, {backgroundColor: "#f8f4f4"}]}>
-          <Card 
+        // <View style={[styles.container, {backgroundColor: "#f8f4f4"}]}>
+        //   <Card 
+        //     title="Red jacket for sale" 
+        //     subTitle="$100"
+        //     image={require("./app/assets/jacket.jpg")}
+        //     />
+        // </View>
+
+        <ListingScreen  
             title="Red jacket for sale" 
             subTitle="$100"
             image={require("./app/assets/jacket.jpg")}
-            />
-        </View>
+
+            avatar={require("./app/assets/mosh.jpg")}
+            name="Mosh Hamedani"
+            num_list="5 Listings"
+        />
        
   );
 }
