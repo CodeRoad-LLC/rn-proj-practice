@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         right: 20,
     },
     block2: {
-        width: 40,
+        width: 40, 
         height: 40,
         backgroundColor: colors.secondary,
         position: "absolute",

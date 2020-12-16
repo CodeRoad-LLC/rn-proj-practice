@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, View , Text, ImageBackground, Image} from 'react-native';
+import ButtonComponent from '../components/ButtonComponent';
 
 function WelcomeScreen(props) {
     return (
         <ImageBackground
+            blurRadius = {0.5}
             source={
                 require("../assets/background.jpg")
             }
@@ -19,9 +21,12 @@ function WelcomeScreen(props) {
                 >Sell What You Don't Need</Text>
             </View>
             
-            <View style={styles.loginButton}></View>
-            <View style={styles.registerButton}></View>
+            <ButtonComponent title="login" color="primary"/>
+            <ButtonComponent title="register" color="secondary"/>
+
         </ImageBackground>
+
+      
     );
 }
 
@@ -43,17 +48,10 @@ const styles = StyleSheet.create({
         height: 100,
        
     },
-    Text: {
-    },
-    loginButton: {
-        width: '100%',
-        height: 50,
-        backgroundColor: "#fc5c65",
-    },
-    registerButton: {
-        width: '100%',
-        height: 50,
-        backgroundColor: "#4ecdc4",
+    text: {
+        fontSize: 18,
+        fontWeight: "bold",
+        marginTop: 15,
     }
 })
 
