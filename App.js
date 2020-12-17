@@ -6,6 +6,7 @@ import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import Card from './app/components/Card';
 import ListingScreen from './app/screens/ListingScreen';
+import MessageScreen from './app/screens/MessageScreen';
 
 export default function App() {
   return (
@@ -25,16 +26,18 @@ export default function App() {
         //     />
         // </View>
 
-        <ListingScreen  
-            title="Red jacket for sale" 
-            subTitle="$100"
-            image={require("./app/assets/jacket.jpg")}
+        // <ListingScreen  
+        //     title="Red jacket for sale" 
+        //     subTitle="$100"
+        //     image={require("./app/assets/jacket.jpg")}
 
-            avatar={require("./app/assets/mosh.jpg")}
-            name="Mosh Hamedani"
-            num_list="5 Listings"
-        />
+        //     avatar={require("./app/assets/mosh.jpg")}
+        //     name="Mosh Hamedani"
+        //     num_list="5 Listings"
+        // />
        
+        <MessageScreen/>
+
   );
 }
 

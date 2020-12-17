@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
         //backgroundColor: "black",
         width: "100%",
         height: 100,
-        marginTop: 30,
-        padding: 20,
+        //marginTop: 30,
+        //padding: 20,
         flexDirection: "row",
     },
     avatar: {
