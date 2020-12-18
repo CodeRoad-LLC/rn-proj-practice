@@ -1,20 +1,29 @@
 import React from 'react';
-import { View , StyleSheet, Image, Text} from 'react-native';
+import { View , StyleSheet, Image, Text, TouchableOpacity, TouchableHighlight} from 'react-native';
 import colors from '../config/colors';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 function PersonalProfile(props) {
     return (
-        <View style={styles.personInfo}>
-                <Image 
-                    source={props.avatar}
-                    style={styles.avatar}
-                />
-                <View style={styles.textContainer}>
-                    <Text style={styles.name}>{props.name}</Text>
-                    <Text style={styles.num_list}>{props.num_list}</Text>
+        <Swipeable 
+            renderRightActions={props.renderRightActions}
+        >
+           <TouchableHighlight onPress={props.onPress} underlayColor={colors.light}> 
+                <View style={styles.personInfo}>
+                    <Image  
+                        source={props.avatar}
+                        style={styles.avatar}
+                    />
+                    <View style={styles.textContainer}>
+                        <Text style={styles.name}>{props.name}</Text>
+                        <Text style={styles.num_list}>{props.num_list}</Text>
+                    </View>
+                    
                 </View>
-                
-            </View>
+            </TouchableHighlight> 
+        </Swipeable>
+        
+        
     );
 }
 
@@ -22,9 +31,8 @@ const styles = StyleSheet.create({
     personInfo:{
         //backgroundColor: "black",
         width: "100%",
-        height: 100,
         //marginTop: 30,
-        //padding: 20,
+        padding: 15,
         flexDirection: "row",
     },
     avatar: {
@@ -38,7 +46,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontWeight: "bold",
-        paddingBottom: 5,
+        paddingBottom: 3,
     },
     num_list: {
         color: colors.grey,
