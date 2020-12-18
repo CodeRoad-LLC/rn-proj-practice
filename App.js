@@ -7,6 +7,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import Card from './app/components/Card';
 import ListingScreen from './app/screens/ListingScreen';
 import MessageScreen from './app/screens/MessageScreen';
+import AccountScreen from './app/screens/AccountScreen';
 
 export default function App() {
   return (
@@ -36,7 +37,9 @@ export default function App() {
         //     num_list="5 Listings"
         // />
        
-        <MessageScreen/>
+        //<MessageScreen/>
+
+        <AccountScreen/>
 
   );
 }
