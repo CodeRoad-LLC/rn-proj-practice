@@ -8,6 +8,7 @@ import Card from './app/components/Card';
 import ListingScreen from './app/screens/ListingScreen';
 import MessageScreen from './app/screens/MessageScreen';
 import AccountScreen from './app/screens/AccountScreen';
+import MainScreen from './app/screens/MainScreen';
 
 export default function App() {
   return (
@@ -39,7 +40,9 @@ export default function App() {
        
         //<MessageScreen/>
 
-        <AccountScreen/>
+        //<AccountScreen/>
+
+        <MainScreen />
 
   );
 }

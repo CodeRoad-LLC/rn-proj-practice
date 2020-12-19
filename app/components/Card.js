@@ -22,7 +22,7 @@ function card(props) {
 const styles = StyleSheet.create({
     card: {
         backgroundColor: colors.white,
-        width: "85%",
+        width: "100%",
         height: 290,
         borderRadius: 20,
         overflow: "hidden",

@@ -7,7 +7,7 @@ import colors from '../config/colors';
 function AccountScreen(props) {
     return(
            <View style={styles.background}>
-                <View style={{backgroundColor: colors.white}}>
+                <View style={{backgroundColor: colors.white, marginBottom: 40}}>
                     <PersonalProfile
                         name={"Martin Guo"}
                         num_list={"gfzlasonadora@gmail.com"}
@@ -15,7 +15,27 @@ function AccountScreen(props) {
                     />  
                 </View> 
 
-                <WideButton/>           
+                <WideButton
+                    iconName={"format-list-bulleted"}
+                    backgroundColor={colors.primary}
+                    text={"My Listings"}
+                />  
+
+                <View style={styles.block1}></View>
+
+                <WideButton
+                    iconName={'email'}
+                    backgroundColor={colors.secondary}
+                    text={"My Messages"}
+                />  
+
+                <View style={styles.block2}></View>
+
+                <WideButton
+                    iconName={'logout'}
+                    backgroundColor={colors.yellow}
+                    text={"Log Out"}
+                />          
             </View> 
         
     );
@@ -26,7 +46,15 @@ const styles = StyleSheet.create({
         backgroundColor: colors.light,
         flex:1,
         paddingTop: 50,
-    }
+    },
+    block1: {
+        width: '100%',
+        height: 0,
+    },
+    block2: {
+        width: '100%',
+        height: 40,
+    },
 })
 
 export default AccountScreen;
