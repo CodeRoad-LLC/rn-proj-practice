@@ -9,6 +9,7 @@ import ListingScreen from './app/screens/ListingScreen';
 import MessageScreen from './app/screens/MessageScreen';
 import AccountScreen from './app/screens/AccountScreen';
 import MainScreen from './app/screens/MainScreen';
+import InputScreen from './app/screens/InputScreen';
 
 export default function App() {
   return (
@@ -42,7 +43,9 @@ export default function App() {
 
         //<AccountScreen/>
 
-        <MainScreen />
+        //<MainScreen />
+
+        <InputScreen/>
 
   );
 }
