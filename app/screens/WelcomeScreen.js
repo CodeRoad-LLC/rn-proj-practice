@@ -24,9 +24,7 @@ function WelcomeScreen(props) {
             <ButtonComponent title="login" color="primary"/>
             <ButtonComponent title="register" color="secondary"/>
 
-        </ImageBackground>
-
-      
+        </ImageBackground>      
     );
 }
 

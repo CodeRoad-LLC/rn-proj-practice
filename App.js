@@ -10,6 +10,7 @@ import MessageScreen from './app/screens/MessageScreen';
 import AccountScreen from './app/screens/AccountScreen';
 import MainScreen from './app/screens/MainScreen';
 import InputScreen from './app/screens/InputScreen';
+import LoginScreen from './app/screens/LoginScreen';
 
 export default function App() {
   return (
@@ -45,7 +46,9 @@ export default function App() {
 
         //<MainScreen />
 
-        <InputScreen/>
+        //<InputScreen/>
+
+        <LoginScreen/>
 
   );
 }
