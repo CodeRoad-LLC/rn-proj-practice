@@ -22,7 +22,14 @@ function AppPicker({icon, items, placeHolder, onSelectItem, selectedItem}) {
                                 size={20}
                                 color={colors.medium}
                                 />}
-                    <Text style={[defaultStyle.text, {flex: 1}]}>{selectedItem ? selectedItem.label : placeHolder}</Text>
+
+                    
+                    {/* <Text >{selectedItem ? selectedItem.label : placeHolder}</Text> */}
+
+                    {selectedItem ? 
+                        <Text style={[defaultStyle.text, {flex: 1}]}>{selectedItem.label}</Text>
+                         : 
+                         <Text style={[defaultStyle.text, {flex: 1, color: colors.medium}]}>{placeHolder}</Text>}
 
                     <MaterialCommunityIcons 
                                 name='chevron-down'

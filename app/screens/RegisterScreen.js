@@ -7,27 +7,29 @@ import {AppFormField, SubmitButton, AppForm } from '../components/forms';
 
 
 const validationSchema = Yup.object().shape({
+    name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(6).label("Password")
 });
 
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
 
     return (
         <Screen >
             <View style={styles.container}>
-            <Image
-                style={styles.logo}
-                source={require("../assets/logo-red.png")}
-            />
 
             <AppForm
-                initialValues={{email: '', password: ''}}
+                initialValues={{name:'', email: '', password: ''}}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-            
+                <AppFormField
+                    name="name"
+                    placeholder="Name"
+                    icon="account"
+                    autoCorrect={false}
+                    />
                 <AppFormField
                     name="email"
                     placeholder="Email"
@@ -61,13 +63,6 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
     },
-    logo: {
-       width: 80,
-       height: 80,
-       alignSelf: 'center',
-       marginTop: 50,
-       marginBottom: 20,
-    }
 })
 
-export default LoginScreen;
+export default RegisterScreen;

@@ -11,6 +11,8 @@ import AccountScreen from './app/screens/AccountScreen';
 import MainScreen from './app/screens/MainScreen';
 import InputScreen from './app/screens/InputScreen';
 import LoginScreen from './app/screens/LoginScreen';
+import RegisterScreen from './app/screens/RegisterScreen';
+import ListEditScreen from './app/screens/ListEditScreen';
 
 export default function App() {
   return (
@@ -40,15 +42,19 @@ export default function App() {
         //     num_list="5 Listings"
         // />
        
-        //<MessageScreen/>
+        // <MessageScreen/>
 
-        //<AccountScreen/>
+        // <AccountScreen/>
 
-        //<MainScreen />
+        // <MainScreen />
 
-        //<InputScreen/>
+        <InputScreen/>
 
-        <LoginScreen/>
+        // <LoginScreen/>
+
+        // <RegisterScreen/>
+
+        // <ListEditScreen/>
 
   );
 }
