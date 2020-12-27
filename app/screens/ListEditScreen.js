@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import {AppFormField, SubmitButton, AppForm } from '../components/forms';
 import AppFormPicker from '../components/forms/AppFormPicker';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
 
 const validationSchema = Yup.object().shape({
@@ -15,9 +16,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-    {label: 'Furniture', value: 1},
-    {label: 'Clothing', value: 2},
-    {label: 'Camera', value: 3}
+    {label: 'Furniture', value: 1, backgroundColor: '#fc5c65', icon: 'floor-lamp'},
+    {label: 'Clothing', value: 2, backgroundColor: '#fd9644', icon: 'car'},
+    {label: 'Camera', value: 3, backgroundColor: '#fed330', icon: 'camera'},
+    {label: 'Games', value: 4, backgroundColor: '#26de81', icon: 'cards'},
+    {label: 'Clothing', value: 5, backgroundColor: '#2bcbba', icon: 'shoe-heel'},
+    {label: 'Sports', value: 6, backgroundColor: '#45aaf2', icon: 'basketball'},
+    {label: 'Moives & Music', value: 7, backgroundColor: '#4b7bec', icon: 'headphones'},
+    {label: 'Books', value: 8, backgroundColor: '#fed330', icon: 'cards'},
+    {label: 'Other', value: 9, backgroundColor: '#fc5c65', icon: 'app'},
+
 ];
 
 function ListEditScreen(props) {
@@ -38,6 +46,7 @@ function ListEditScreen(props) {
                     autoCapitalize="none"
                     autoCorrect={false}
                     maxLength={255}
+                    
                     />
 
                 <AppFormField
@@ -46,6 +55,7 @@ function ListEditScreen(props) {
                     autoCapitalize="none"
                     autoCorrect={false}
                     maxLength={8}
+                    width="30%"
                     />
 
 
@@ -53,6 +63,9 @@ function ListEditScreen(props) {
                     items={categories}
                     name="category"
                     placeHolder="category"
+                    width="50%"
+                    numberOfColumns={3}
+                    PickerItemComponent={CategoryPickerItem}
                 />
                 
                 <AppFormField

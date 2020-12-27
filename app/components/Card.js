@@ -10,10 +10,12 @@ function card(props) {
                 style={styles.img}
             />
             <Text
+                numberOfLines={1}
                 style={styles.title}
             >{props.title}</Text>
             <Text
-                 style={styles.subTitle}
+                numberOfLines={1}
+                style={styles.subTitle}
             >{props.subTitle}</Text>
         </View>
     );

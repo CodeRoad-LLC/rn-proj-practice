@@ -45,6 +45,7 @@ function MessageScreen(props) {
             keyExtractor={message => message.id.toString()}
             renderItem={({item}) => 
             <PersonalProfile
+                showChevrons
                 name={item.title}
                 num_list={item.description}
                 avatar={item.image}

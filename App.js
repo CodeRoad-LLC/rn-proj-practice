@@ -48,13 +48,13 @@ export default function App() {
 
         // <MainScreen />
 
-        <InputScreen/>
+        // <InputScreen/>
 
         // <LoginScreen/>
 
         // <RegisterScreen/>
 
-        // <ListEditScreen/>
+        <ListEditScreen/>
 
   );
 }
