@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Icon from './Icon';
 
 const itemSub = {
@@ -9,14 +9,17 @@ const itemSub = {
 
 function CategoryPickerItem({item,  onPress}) {
     return (
-    <View style={styles.container}>
-           <Icon 
-            backgroundColor={item.backgroundColor}
-            name={item.icon}
-            size={80}
-            />
-            <Text style={styles.label}>{item.label}</Text> 
-    </View>)
+        <View style={styles.container}>
+            <TouchableOpacity onPress={onPress}> 
+                <Icon 
+                    backgroundColor={item.backgroundColor}
+                    name={item.icon}
+                    size={80}
+                />
+                <Text style={styles.label}>{item.label}</Text> 
+            </TouchableOpacity>
+        </View>
+    )
     ;
 }
 

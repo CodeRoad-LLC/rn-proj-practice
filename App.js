@@ -13,6 +13,7 @@ import InputScreen from './app/screens/InputScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListEditScreen from './app/screens/ListEditScreen';
+import GetImageScreen from './app/screens/GetImageScreen';
 
 export default function App() {
   return (
@@ -55,6 +56,9 @@ export default function App() {
         // <RegisterScreen/>
 
         <ListEditScreen/>
+
+        // <GetImageScreen/>
+
 
   );
 }
