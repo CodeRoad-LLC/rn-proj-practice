@@ -17,14 +17,14 @@ function FormImagePicker({name}) {
     }
 
     return (
-    <>
-        <ImageInputList
-            imageUris={values[name]} 
-            onAddImage={handleAdd}
-            onRemoveImage={handleDelete}
-        />
-        <ErrorMessage error={errors[name]} visible={touched[name]}/>
-    </>
+        <>
+            <ImageInputList
+                imageUris={values[name]} 
+                onAddImage={handleAdd}
+                onRemoveImage={handleDelete}
+            />
+            <ErrorMessage error={errors[name]} visible={touched[name]}/>
+        </>
   );
 }
 

@@ -15,10 +15,12 @@ import RegisterScreen from './app/screens/RegisterScreen';
 import ListEditScreen from './app/screens/ListEditScreen';
 import GetImageScreen from './app/screens/GetImageScreen';
 import TestNavigation from './app/screens/TestNavigation';
+import RealNavigation from './app/screens/RealNavigation';
+import MainNavigation from './app/screens/MainNavigation';
 
 export default function App() {
   return (
-        //<WelcomeScreen/>
+        // <WelcomeScreen/>
 
         //<ViewImageScreen/>
 
@@ -35,13 +37,13 @@ export default function App() {
         // </View>
 
         // <ListingScreen  
-        //     title="Red jacket for sale" 
-        //     subTitle="$100"
-        //     image={require("./app/assets/jacket.jpg")}
+            // title="Red jacket for sale" 
+            // subTitle="$100"
+            // image={require("./app/assets/jacket.jpg")}
 
-        //     avatar={require("./app/assets/mosh.jpg")}
-        //     name="Mosh Hamedani"
-        //     num_list="5 Listings"
+            // avatar={require("./app/assets/mosh.jpg")}
+            // name="Mosh Hamedani"
+            // num_list="5 Listings"
         // />
        
         // <MessageScreen/>
@@ -60,9 +62,11 @@ export default function App() {
 
         // <GetImageScreen/>
 
-        <TestNavigation/>
+        // <TestNavigation/>
 
+        // <RealNavigation/>
 
+        <MainNavigation/>
   );
 }
 

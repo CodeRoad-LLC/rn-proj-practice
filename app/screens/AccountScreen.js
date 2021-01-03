@@ -1,10 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import PersonalProfile from '../components/PersonalProfile';
 import WideButton from '../components/WideButton';
 import colors from '../config/colors';
 
 function AccountScreen(props) {
+    const navi = useNavigation();
+
     return(
            <View style={styles.background}>
                 <View style={{backgroundColor: colors.white, marginBottom: 40}}>
@@ -23,11 +27,15 @@ function AccountScreen(props) {
 
                 <View style={styles.block1}></View>
 
-                <WideButton
-                    iconName={'email'}
-                    backgroundColor={colors.secondary}
-                    text={"My Messages"}
-                />  
+                <TouchableOpacity onPress={() => navi.navigate('myMessage')}>
+                   <WideButton
+                        iconName={'email'}
+                        backgroundColor={colors.secondary}
+                        text={"My Messages"}
+                        
+                    />  
+                </TouchableOpacity>
+                 
 
                 <View style={styles.block2}></View>
 

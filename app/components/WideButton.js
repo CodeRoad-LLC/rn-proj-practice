@@ -16,9 +16,14 @@ function WideButton(props) {
                 </View>
                 <Text style={styles.text}>
                     {props.text}
-                </Text>
+                </Text> 
+                <MaterialCommunityIcons 
+                                name='chevron-right'
+                                size={20}
+                                color={colors.medium}
+                                />
             </View>
-            
+           
         </View>
     );
 }
@@ -28,6 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         width: '100%',
         height: 60,
+        paddingRight: 10,
     },
     inside: {
         flex: 1,
@@ -46,6 +52,7 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         marginLeft: 15,
+        flex:1,
     }
 })
 

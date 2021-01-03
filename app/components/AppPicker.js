@@ -77,7 +77,7 @@ function AppPicker({icon,
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.light,
+        backgroundColor: colors.light2,
         borderRadius: 25,
         flexDirection: "row",
         padding: 15,

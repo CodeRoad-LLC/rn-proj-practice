@@ -3,7 +3,7 @@ import { Button, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import colors from '../config/colors';
 
 
-function ButtonComponent(props) {
+function ButtonComponent(props) { 
    return (
         <TouchableOpacity
             style={[styles.button, props.style]} 

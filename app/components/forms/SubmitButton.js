@@ -6,7 +6,7 @@ import colors from '../../config/colors';
 function SubmitButton({title}) {
     const {handleSubmit} = useFormikContext();
     return (
-        <ButtonComponent
+        <ButtonComponent 
             style={{backgroundColor: colors.primary}}
             title={title}
             onPress={handleSubmit}

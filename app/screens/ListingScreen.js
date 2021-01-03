@@ -2,26 +2,28 @@ import React from 'react';
 import { Text, View, StyleSheet, Image, ProgressViewIOSComponent } from 'react-native';
 import PersonalProfile from '../components/PersonalProfile';
 import colors from '../config/colors';
+import {useRoute} from '@react-navigation/native';
 
 function ListingScreen(props) {
+    const route = useRoute();
     return (
         <View style={styles.container}>
             <Image
-                source={props.image}
+                source={route.params.image}
                 style={styles.img}
             />
             <Text
                 style={styles.title}
-            >{props.title}</Text>
+            >{route.params.title}</Text>
             <Text
                  style={styles.subTitle}
-            >{props.subTitle}</Text>
+            >{route.params.subTitle}</Text>
 
            
             <PersonalProfile 
-                avatar={props.avatar}
-                name={props.name}
-                num_list={props.num_list}
+                avatar={route.params.avatar}
+                name={route.params.name}
+                num_list={route.params.num_list}
             />
             
         </View>

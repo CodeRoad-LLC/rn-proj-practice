@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Card from '../components/Card';
+import {useNavigation} from '@react-navigation/native';
 
 const lists = [
     {   
@@ -17,8 +18,9 @@ const lists = [
         picAddress: require("../assets/couch.jpg"),
     },
 ];
-
+ 
 function MainScreen(props) {
+    const navi = useNavigation();
     return (
         <View style={[styles.container, {backgroundColor: "#f8f4f4"}]}>
           
@@ -26,11 +28,24 @@ function MainScreen(props) {
             data={lists}
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => 
-                <Card 
-                title= {item.title} 
-                subTitle= {item.subTitle}
-                image={item.picAddress}
-                />}
+                <TouchableOpacity onPress={() => 
+                                            navi.navigate('ListDetails', 
+                                            {
+                                                title: item.title ,
+                                                subTitle: item.subTitle,
+                                                image: item.picAddress,
+                                    
+                                                avatar: require("../assets/mosh.jpg"),
+                                                name: "Mosh Hamedani",
+                                                num_list: "5 Listings",
+                                            })}>
+                    <Card 
+                        title= {item.title} 
+                        subTitle= {item.subTitle}
+                        image={item.picAddress}
+                    />
+                </TouchableOpacity>
+            }    
             style={styles.flatList}
             ItemSeparatorComponent={() => <View style={{height: 25}}/>}
             /> 
