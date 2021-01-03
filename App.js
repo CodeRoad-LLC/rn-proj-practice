@@ -14,6 +14,7 @@ import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListEditScreen from './app/screens/ListEditScreen';
 import GetImageScreen from './app/screens/GetImageScreen';
+import TestNavigation from './app/screens/TestNavigation';
 
 export default function App() {
   return (
@@ -55,9 +56,11 @@ export default function App() {
 
         // <RegisterScreen/>
 
-        <ListEditScreen/>
+        // <ListEditScreen/>
 
         // <GetImageScreen/>
+
+        <TestNavigation/>
 
 
   );
