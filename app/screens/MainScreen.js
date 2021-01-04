@@ -1,39 +1,54 @@
-import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {View, StyleSheet, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Card from '../components/Card';
 import {useNavigation} from '@react-navigation/native';
+import listingsApi from '../api/listings';
+import ButtonComponent from '../components/ButtonComponent';
 
-const lists = [
-    {   
-        id: 1,
-        title: "Red jacket for sale",
-        subTitle: "$100",
-        picAddress: require("../assets/jacket.jpg"),
-    },
-    {   
-        id: 2,
-        title: "Coach in great Condition",
-        subTitle: "$1000",
-        picAddress: require("../assets/couch.jpg"),
-    },
-];
  
 function MainScreen(props) {
+
+    const [listings, setListings] = useState([]);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect( () => {
+        loadListings();
+    }, []);
+
+    const loadListings = async () => {
+
+        setLoading(true);
+        const response = await listingsApi.getListings();
+        setLoading(false);
+
+        if(!response.ok) return setError(true);
+
+        setError(false);
+        setListings(response.data);
+    }
+
     const navi = useNavigation();
     return (
         <View style={[styles.container, {backgroundColor: "#f8f4f4"}]}>
-          
+          {error && (
+              <>
+                <Text> Couldn't retrieve the listings</Text>
+                <ButtonComponent title="Retry" onPress={loadListings}/>
+              </>
+          )}
+          <ActivityIndicator animating={true} size='large' />
           <FlatList 
-            data={lists}
+            data={listings}
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => 
                 <TouchableOpacity onPress={() => 
                                             navi.navigate('ListDetails', 
                                             {
                                                 title: item.title ,
-                                                subTitle: item.subTitle,
-                                                image: item.picAddress,
+                                                subTitle: item.price,
+                                                image: item.images[0].url,
                                     
                                                 avatar: require("../assets/mosh.jpg"),
                                                 name: "Mosh Hamedani",
@@ -41,8 +56,8 @@ function MainScreen(props) {
                                             })}>
                     <Card 
                         title= {item.title} 
-                        subTitle= {item.subTitle}
-                        image={item.picAddress}
+                        subTitle= {item.price}
+                        imageUrl={item.images[0].url}
                     />
                 </TouchableOpacity>
             }    

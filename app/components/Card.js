@@ -6,7 +6,7 @@ function card(props) {
     return (
         <View style={styles.card}>
             <Image
-                source={props.image}
+                source={{uri: props.imageUrl}}
                 style={styles.img}
             />
             <Text
@@ -16,7 +16,7 @@ function card(props) {
             <Text
                 numberOfLines={1}
                 style={styles.subTitle}
-            >{props.subTitle}</Text>
+            >${props.subTitle}</Text>
         </View>
     );
 }

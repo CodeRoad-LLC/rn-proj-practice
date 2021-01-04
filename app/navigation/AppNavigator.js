@@ -14,6 +14,7 @@ import colors from '../config/colors';
 import NewListingButton from './NewListingButton';
 import routes from './routes';
 
+
 const Stack = createStackNavigator();
 const StackNavigator = () => (
     <Stack.Navigator 

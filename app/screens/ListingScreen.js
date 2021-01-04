@@ -7,9 +7,9 @@ import {useRoute} from '@react-navigation/native';
 function ListingScreen(props) {
     const route = useRoute();
     return (
-        <View style={styles.container}>
+        <View style={styles.container}> 
             <Image
-                source={route.params.image}
+                source={{uri: route.params.image}}
                 style={styles.img}
             />
             <Text
@@ -17,7 +17,7 @@ function ListingScreen(props) {
             >{route.params.title}</Text>
             <Text
                  style={styles.subTitle}
-            >{route.params.subTitle}</Text>
+            >${route.params.subTitle}</Text>
 
            
             <PersonalProfile 
