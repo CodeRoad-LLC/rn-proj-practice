@@ -7,7 +7,8 @@ import {AppFormField, SubmitButton, AppForm } from '../components/forms';
 import AppFormPicker from '../components/forms/AppFormPicker';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/forms/FormImagePicker';
-
+import listingsApi from '../api/listings';
+import UploadScreen from './UploadScreen';
 
 const validationSchema = Yup.object().shape({
     //imagePicker: Yup.array().min(1, 'please select at least one image'),
@@ -31,16 +32,33 @@ const categories = [
 ];
 
 function ListEditScreen(props) {
-   
     const location = useLocation();
+    const [uploadVisible, setUploadVisible] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    const handleSubmit = async (listing, {resetForm}) => {
+        setProgress(0);
+        setUploadVisible(true);
+        const result = await listingsApi.addListing(
+            {...listing, location},
+            (progress) => setProgress(progress));
+        
+        if(!result.ok) {
+            setUploadVisible(false);
+          return alert('Could not save the listing');  
+        } 
+
+        resetForm();
+    }
 
     return (
         <Screen >
             <View style={styles.container}>
 
+            <UploadScreen onDone={() => setUploadVisible(false)} progress={progress} visible={uploadVisible} />
             <AppForm
                 initialValues={{imagePicker:[], title: '', price: '', description: '', category: null}}
-                onSubmit={values => console.log(location)}
+                onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
 

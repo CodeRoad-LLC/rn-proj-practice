@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import {View, StyleSheet, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Card from '../components/Card';
 import {useNavigation} from '@react-navigation/native';
 import listingsApi from '../api/listings';
 import ButtonComponent from '../components/ButtonComponent';
+import ActivityIndicator from '../components/ActivityIndicator';
+import useApi from '../hooks/useApi';
 
  
 function MainScreen(props) {
 
-    const [listings, setListings] = useState([]);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+   const {data:listings, error, loading, request: loadListings} = useApi(listingsApi.getListings);
 
     useEffect( () => {
         loadListings();
     }, []);
-
-    const loadListings = async () => {
-
-        setLoading(true);
-        const response = await listingsApi.getListings();
-        setLoading(false);
-
-        if(!response.ok) return setError(true);
-
-        setError(false);
-        setListings(response.data);
-    }
 
     const navi = useNavigation();
     return (
@@ -38,7 +26,7 @@ function MainScreen(props) {
                 <ButtonComponent title="Retry" onPress={loadListings}/>
               </>
           )}
-          <ActivityIndicator animating={true} size='large' />
+          <ActivityIndicator visible={loading} />
           <FlatList 
             data={listings}
             keyExtractor={item => item.id.toString()}
