@@ -17,8 +17,13 @@ import GetImageScreen from './app/screens/GetImageScreen';
 import TestNavigation from './app/screens/TestNavigation';
 import RealNavigation from './app/screens/RealNavigation';
 import MainNavigation from './app/screens/MainNavigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNetInfo} from '@react-native-community/netinfo';
+import OfflineNotice from './app/components/OfflineNotice';
 
 export default function App() {
+  // const netInfo = useNetInfo();
+
   return (
         // <WelcomeScreen/>
 
@@ -66,7 +71,12 @@ export default function App() {
 
         // <RealNavigation/>
 
-        <MainNavigation/>
+
+        <>
+          <OfflineNotice/>
+          <MainNavigation/>
+        </>
+        
   );
 }
 

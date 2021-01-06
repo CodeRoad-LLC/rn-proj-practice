@@ -1,22 +1,25 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet} from 'react-native';
 import colors from '../config/colors';
+import {Image} from 'react-native-expo-image-cache';
 
-function card(props) {
+function card({imageUrl, title, subTitle, thumbnailUrl}) {
     return (
         <View style={styles.card}>
             <Image
-                source={{uri: props.imageUrl}}
+                uri={ imageUrl}
                 style={styles.img}
+                preview={{uri: thumbnailUrl}}
+                tint="light"
             />
             <Text
                 numberOfLines={1}
                 style={styles.title}
-            >{props.title}</Text>
+            >{title}</Text>
             <Text
                 numberOfLines={1}
                 style={styles.subTitle}
-            >${props.subTitle}</Text>
+            >${subTitle}</Text>
         </View>
     );
 }

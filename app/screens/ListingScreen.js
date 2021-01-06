@@ -1,15 +1,18 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, ProgressViewIOSComponent } from 'react-native';
+import { Text, View, StyleSheet, ProgressViewIOSComponent } from 'react-native';
 import PersonalProfile from '../components/PersonalProfile';
 import colors from '../config/colors';
 import {useRoute} from '@react-navigation/native';
+import {Image} from 'react-native-expo-image-cache';
 
 function ListingScreen(props) {
     const route = useRoute();
     return (
         <View style={styles.container}> 
             <Image
-                source={{uri: route.params.image}}
+                uri= {route.params.image}
+                preview={{uri: route.params.preview}}
+                tint="light"
                 style={styles.img}
             />
             <Text

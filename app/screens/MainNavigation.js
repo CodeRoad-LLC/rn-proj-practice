@@ -12,18 +12,21 @@ import MainScreen from './MainScreen';
 import MessageScreen from './MessageScreen';
 import colors from '../config/colors';
 import TabNavigator from '../navigation/AppNavigator';
+import OfflineNotice from '../components/OfflineNotice';
 
 
 function MainNavigation(props) {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={styles.container}>
         <TabNavigator/>
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {
+    zIndex: 0,
+  }
 });
 
 export default MainNavigation;

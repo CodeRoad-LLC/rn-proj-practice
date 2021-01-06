@@ -37,6 +37,8 @@ function MainScreen(props) {
                                                 title: item.title ,
                                                 subTitle: item.price,
                                                 image: item.images[0].url,
+                                                preview: item.images[0].thumbnailUrl,
+                                                
                                     
                                                 avatar: require("../assets/mosh.jpg"),
                                                 name: "Mosh Hamedani",
@@ -46,6 +48,7 @@ function MainScreen(props) {
                         title= {item.title} 
                         subTitle= {item.price}
                         imageUrl={item.images[0].url}
+                        thumbnailUrl={item.images[0].thumbnailUrl}
                     />
                 </TouchableOpacity>
             }    
