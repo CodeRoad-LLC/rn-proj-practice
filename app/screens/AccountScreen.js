@@ -1,20 +1,27 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import authStorage from '../auth/authStorage';
+import AuthContext from '../auth/context';
+import useAuth from '../auth/useAuth';
 import PersonalProfile from '../components/PersonalProfile';
 import WideButton from '../components/WideButton';
 import colors from '../config/colors';
 
+
 function AccountScreen(props) {
     const navi = useNavigation();
+    const {user, logOut} = useAuth();
+
+  
 
     return(
            <View style={styles.background}>
                 <View style={{backgroundColor: colors.white, marginBottom: 40}}>
                     <PersonalProfile
-                        name={"Martin Guo"}
-                        num_list={"gfzlasonadora@gmail.com"}
+                        name={user.name}
+                        num_list={user.email}
                         avatar={require('../assets/mosh.jpg')}
                     />  
                 </View> 
@@ -39,11 +46,14 @@ function AccountScreen(props) {
 
                 <View style={styles.block2}></View>
 
-                <WideButton
-                    iconName={'logout'}
-                    backgroundColor={colors.yellow}
-                    text={"Log Out"}
-                />          
+                <TouchableOpacity onPress={() => logOut()} >
+                    <WideButton
+                        iconName={'logout'}
+                        backgroundColor={colors.yellow}
+                        text={"Log Out"}
+                    />  
+                </TouchableOpacity>
+                        
             </View> 
         
     );
